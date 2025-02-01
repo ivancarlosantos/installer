@@ -9,6 +9,11 @@ echo "Update Successfully"
 
 sleep 5
 
+echo "OS Release"
+curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/release.sh | bash
+
+sleep 5
+
 echo "gcc Installer"
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/gcc.sh | bash
 sleep 3
@@ -28,7 +33,7 @@ apt-get install oracle-java17-installer oracle-java17-set-default
 
 sleep 3
 
-echo Install Maven
+echo "Install Maven"
 sleep 3
 apt-get install maven -y
 sleep 3
