@@ -10,7 +10,7 @@ echo "Update Successfully"
 sleep 5
 
 echo "gcc Installer"
-https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/gcc.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/gcc.sh | bash
 sleep 3
 
 echo "Java Installer"
