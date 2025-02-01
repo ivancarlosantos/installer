@@ -9,6 +9,10 @@ echo "Update Successfully"
 
 sleep 5
 
+echo "gcc Installer"
+https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/gcc.sh | bash
+sleep 3
+
 echo "Java Installer"
 sleep 3
 add-apt-repository ppa:linuxuprising/java -y
@@ -26,7 +30,7 @@ sleep 3
 
 echo Install Maven
 sleep 3
-apt-get install maven
+apt-get install maven -y
 sleep 3
 echo "maven install successfully"
 
@@ -34,7 +38,7 @@ sleep 5
 
 echo "Install Nginx"
 sleep 3
-apt-get install nginx
+apt-get install nginx -y
 sleep 3
 echo "nginx install successfully"
 
