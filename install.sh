@@ -1,12 +1,13 @@
 #!/bin/bash
 
-echo "Update Development Machine"
+echo "Create Production Environment Machine"
 sleep 4
-apt update -y
+
+echo "Verify Update Machine"
 sleep 3
-
+apt-get update -y
+sleep 3
 echo "Update Successfully"
-
 sleep 5
 
 echo "OS Release"
@@ -21,10 +22,6 @@ sleep 3
 echo "Java Installer"
 sleep 3
 add-apt-repository ppa:linuxuprising/java -y
-sleep 3
-
-echo "Update and Upgrade"
-apt update -y
 sleep 3
 
 echo "Bind Java Installer version v17"
@@ -69,3 +66,10 @@ sleep 3
 usermod -aG docker $USER
 
 echo "Docker Installed successfully"
+
+echo "Update Machine"
+sleep 4
+apt update -y
+sleep 3
+echo "Update Successfully"
+sleep 5
