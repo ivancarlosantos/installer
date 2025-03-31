@@ -63,7 +63,7 @@ echo "Docker Installed successfully"
 
 echo "Update Machine"
 sleep 4
-apt update -y
+apt update -y curl
 sleep 3
 echo "Update Successfully"
 sleep 5
