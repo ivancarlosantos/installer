@@ -2,7 +2,7 @@
 
 echo "Update Development Machine"
 sleep 4
-apt update -y && apt upgrade -y curl
+apt update -y curl
 sleep 3
 
 echo "Update Successfully"
@@ -24,7 +24,7 @@ add-apt-repository ppa:linuxuprising/java -y
 sleep 3
 
 echo "Update and Upgrade"
-apt update -y && apt upgrade -y
+apt update -y
 sleep 3
 
 echo "Bind Java Installer version v17"
