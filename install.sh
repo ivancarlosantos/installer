@@ -1,12 +1,10 @@
 #!/bin/bash
 
-echo "Update Development Machine"
+echo "Create Production Environment Machine"
 sleep 4
 apt update -y curl
 sleep 3
-
 echo "Update Successfully"
-
 sleep 5
 
 echo "OS Release"
@@ -23,14 +21,9 @@ sleep 3
 add-apt-repository ppa:linuxuprising/java -y
 sleep 3
 
-echo "Update and Upgrade"
-apt update -y
-sleep 3
-
 echo "Bind Java Installer version v17"
 sleep 3
 apt-get install oracle-java17-installer oracle-java17-set-default
-
 sleep 3
 
 echo "Install Maven"
@@ -38,7 +31,6 @@ sleep 3
 apt-get install maven -y
 sleep 3
 echo "maven install successfully"
-
 sleep 5
 
 echo "Install Nginx"
@@ -46,7 +38,6 @@ sleep 3
 apt-get install nginx -y
 sleep 3
 echo "nginx install successfully"
-
 sleep 5
 
 echo "Install certificates"
@@ -69,3 +60,10 @@ sleep 3
 usermod -aG docker $USER
 
 echo "Docker Installed successfully"
+
+echo "Update Machine"
+sleep 4
+apt update -y
+sleep 3
+echo "Update Successfully"
+sleep 5
