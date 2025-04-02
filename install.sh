@@ -61,6 +61,13 @@ usermod -aG docker $USER
 
 echo "Docker Installed successfully"
 
+echo "Download batchshell file image api-powerkr"
+sleep 3
+curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.c
+sleep 3
+echo "Download Successfully"
+sleep 5
+
 echo "Update Machine"
 sleep 4
 apt update -y curl
