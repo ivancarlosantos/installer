@@ -70,7 +70,7 @@ sleep 5
 
 echo "Update Machine"
 sleep 4
-apt update -y curl
+apt-get update -y
 sleep 3
 echo "Update Successfully"
 sleep 5
