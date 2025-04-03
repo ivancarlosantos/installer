@@ -62,6 +62,11 @@ sleep 3
 echo "Docker Installed successfully"
 sleep 3
 
+echo 'Version Verify'
+sleep 2
+curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/version.sh | bash
+sleep 2
+
 echo "Create installer folder"
 sleep 2
 mkdir environment-installer
@@ -69,7 +74,7 @@ sleep 2
 
 echo "Download batchshell file image api-powerkr"
 sleep 3
-cd environment-installer && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.c
+cd environment-installer && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.c && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.sh 
 sleep 3
 echo "Download image file Successfully"
 sleep 3
