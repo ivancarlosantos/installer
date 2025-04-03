@@ -2,7 +2,7 @@
 
 echo "Create Production Environment Machine"
 sleep 4
-apt update -y curl
+apt-get update -y
 sleep 3
 echo "Update Successfully"
 sleep 5
