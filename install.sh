@@ -16,6 +16,13 @@ echo "gcc Installer"
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/gcc.sh | bash
 sleep 3
 
+echo "Install Maven"
+sleep 3
+apt-get install maven -y
+sleep 3
+echo "maven install successfully"
+sleep 5
+
 echo "Java Installer"
 sleep 3
 add-apt-repository ppa:linuxuprising/java -y
@@ -25,13 +32,6 @@ echo "Bind Java Installer version v17"
 sleep 3
 apt-get install oracle-java17-installer oracle-java17-set-default
 sleep 3
-
-echo "Install Maven"
-sleep 3
-apt-get install maven -y
-sleep 3
-echo "maven install successfully"
-sleep 5
 
 echo "Install Nginx"
 sleep 3
