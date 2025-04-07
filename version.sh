@@ -20,16 +20,6 @@ sleep 2
 nginx -v
 sleep 2
 
-echo 'NodeJs Version\n'
-sleep 2
-nodejs -v
-sleep 2
-
-echo 'npm Version\n'
-sleep 2
-npm -v
-sleep 2
-
 echo 'Docker Version\n'
 sleep 2
 docker -v
