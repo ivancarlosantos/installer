@@ -37,7 +37,7 @@ sleep(3);
 system("docker rmi registry.digitalocean.com/api-powerkr-image/api-powerkr");
 sleep(5);
 
-printf("\tExecutando Docker Backend\n");
+printf("\tExecutando Docker api-powerkr Backend\n");
 sleep(3);
 system("");
 sleep(5);
