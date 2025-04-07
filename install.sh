@@ -40,34 +40,6 @@ sleep 3
 echo "nginx install successfully\n"
 sleep 5
 
-echo "Install NodeJs\n"
-sleep 3
-apt-get install nodejs npm -y 
-sleep 3
-echo "NodeJs install successfully"
-sleep 5
-
-echo "Install npm\n"
-sleep 3
-apt-get install npm -y
-sleep 3
-echo "npm install successfully\n"
-sleep 5
-
-echo "Install pm2\n"
-sleep 3
-apt-get npm install -g pm2
-sleep 3
-echo "pm2 install successfully\n"
-sleep 5
-
-echo "Install pnpm\n"
-sleep 3
-apt-get
-sleep 3
-echo "pnpm install successfully\n"
-sleep 5
-
 echo "Install certificates\n"
 sleep 3
 apt-get install ca-certificates curl
