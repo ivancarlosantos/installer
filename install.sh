@@ -71,6 +71,13 @@ sleep 3
 echo "Installing the Metrics Agent Successfully\n"
 sleep 2
 
+echo "Verify the Agent is Running\n"
+sleep 3
+ps aux | grep do-agent
+sleep 3
+echo "Installing the Metrics Agent Successfully\n"
+sleep 2
+
 echo "Update Machine\n"
 sleep 4
 apt-get update -y
