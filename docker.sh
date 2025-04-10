@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Install certificates\n"
+sleep 3
+apt-get install ca-certificates curl
+sleep 3
+
 echo "Install Docker\n"
 sleep 3
 curl -ssL https://get.docker.com | sh

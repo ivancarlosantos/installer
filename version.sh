@@ -5,14 +5,14 @@ sleep 2
 gcc --version
 sleep 2
 
+echo 'Javac Version\n'
+sleep 2
+javac --version
+sleep 2
+
 echo 'Java Version\n'
 sleep 2
 java --version
-sleep 2
-
-echo 'Maven Version\n'
-sleep 2
-mvn -v
 sleep 2
 
 echo 'Nginx Version\n'
