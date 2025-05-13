@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo "Install Nginx\n"
+sleep 3
+apt-get install nginx -y
+sleep 3
+echo "Nginx Install Successfully\n"
+sleep 5
+
 echo "Install certificates\n"
 sleep 3
 apt-get install ca-certificates curl
@@ -10,12 +17,12 @@ sleep 3
 curl -ssL https://get.docker.com | sh
 sleep 3
 
-echo "add group Docker"
+echo "add group Docker\n"
 sleep 3
 groupadd docker
 sleep 3
 
-echo "add user to group Docker"
+echo "add user to group Docker\n"
 sleep 3
 usermod -aG docker $USER
 sleep 3
