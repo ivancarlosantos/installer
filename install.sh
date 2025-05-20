@@ -1,26 +1,21 @@
 #!/bin/bash
 
-echo "Create Production Environment Machine\n"
+echo "Create Machine\n"
 sleep 4
-apt-get update -y
+apt update -y curl
 sleep 3
 echo "Update Successfully!\n"
 sleep 5
 
 echo "OS Release!\n"
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/release.sh | bash
-
 sleep 5
 
 echo "gcc Installer\n"
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/gcc.sh | bash
 sleep 3
 
-echo "Java Installer\n"
-curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/java.sh | bash
-sleep 3
-
-echo "Install doctl"
+echo "Install doctl\n"
 sleep 2
 sudo snap install doctl
 sleep 3
