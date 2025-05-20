@@ -2,7 +2,7 @@
 
 echo "Create Machine\n"
 sleep 4
-apt update -y curl
+apt-get update -y curl
 sleep 3
 echo "Update Successfully!\n"
 sleep 5
@@ -75,6 +75,6 @@ sleep 2
 
 echo "Update Machine\n"
 sleep 4
-apt-get update -y
+apt-get update -y && apt-get upgrade -y
 sleep 3
 echo "Update Successfully\n"
