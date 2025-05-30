@@ -1,11 +1,7 @@
 #!/bin/bash
 
-echo "Install Nginx\n"
+echo "Docker & Docker Compose Installer\n"
 sleep 3
-apt-get install nginx -y
-sleep 3
-echo "Nginx Install Successfully\n"
-sleep 5
 
 echo "Install certificates\n"
 sleep 3
@@ -29,13 +25,29 @@ sleep 3
 echo "Docker Installed successfully\n"
 sleep 3
 
+echo "Docker Compose Installer\n"
+sleep 3
+mkdir -p ~/.docker/cli-plugins/
+sleep 3
+curl -SL https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+sleep 3
+chmod +x ~/.docker/cli-plugins/docker-compose
+sleep 3
+echo "Docker Compose Installed Successfully\n"
+sleep 3
+
 echo 'Docker Version\n'
 sleep 2
 docker -v
 sleep 2
 
+echo 'Docker Compose Version\n'
+sleep 2
+docker compose version
+sleep 2
+
 echo "Update Machine\n"
-sleep 4
-apt-get update -y
 sleep 3
-echo "Update Successfully!!"
+apt-get update -y && apt-get upgrade -y
+sleep 3
+echo "Installer Successfully!!"
