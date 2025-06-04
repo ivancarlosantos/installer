@@ -24,6 +24,8 @@ sleep 2
 
 echo 'create environment directory'
 sleep 2
+mkdir environment-installer
+sleep 2
 cd environment-installer && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.c && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.sh && chmod +x image.sh
 sleep 2
 
