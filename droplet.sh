@@ -22,7 +22,14 @@ sleep 3
 docker network create --driver overlay npm_public
 sleep 2
 
+echo 'create environment directory'
+sleep 2
+cd environment-installer && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.c && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.sh && chmod +x image.sh
+sleep 2
+
 echo 'portainer'
 sleep 2
-curl -L https://downloads.portainer.io/ce2-18/portainer-agent-stack.yml -o portainer-agent-stack.yml
+cd environment-installer && curl -L https://downloads.portainer.io/ce2-18/portainer-agent-stack.yml -o portainer-agent-stack.yml && docker stack deploy -c portainer-agent-stack.yml portainer
 sleep 2
+
+echo 'Environment Installer Successfully'
