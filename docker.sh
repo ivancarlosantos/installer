@@ -5,7 +5,7 @@ sleep 3
 
 echo "Install certificates\n"
 sleep 3
-apt-get install ca-certificates curl
+apt-get install ca-certificates
 sleep 3
 
 echo "Install Docker\n"
