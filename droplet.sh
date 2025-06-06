@@ -4,7 +4,7 @@ sleep 2
 
 echo 'Update & Upgrade Droplet'
 sleep 2
-apt-get update -y & apt-get upgrade -y
+apt-get update -y && apt-get upgrade -y
 sleep 2
 
 echo 'gcc'
