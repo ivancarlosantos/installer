@@ -40,7 +40,8 @@ sleep(5);
 printf("\tExecutando Docker api-powerkr Backend\n");
 sleep(3);
 system("");
-sleep(5);printf("\tVerificando Vulnerabilidades de Segurança dos Containers\n");
+sleep(5);
+printf("\tVerificando Vulnerabilidades de Segurança dos Containers\n");
 sleep(2);
 
 printf("\tVerificando o processo do container api-powerkr\n");
