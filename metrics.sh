@@ -4,6 +4,10 @@ echo "OS Release!\n"
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/release.sh | bash
 sleep 5
 
+echo "Criar Rede/Network Docker\n"
+docker network create --driver bridge app-prime-max
+sleep 5
+
 echo "Instalar Loki"
 docker run --name loki --network app-prime-max -d -v $(pwd):/mnt/config -p 3100:3100 grafana/loki:3.0.0 -config.file=/mnt/config/loki-config.yaml
 sleep 5
