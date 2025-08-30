@@ -1,32 +1,32 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Função para desenhar a barra de progresso
-progress_bar() {
-    local current=$1
-    local total=$2
-    local width=${3:-50}  # Largura da barra (padrão: 50 caracteres)
-    
-    # Calcula a porcentagem
-    local percent=$((current * 100 / total))
-    
-    # Calcula quantos caracteres preencher
-    local filled=$((width * current / total))
-    
-    # Cria a barra
-    local bar=""
-    for ((i=0; i<width; i++)); do
-        if [ $i -lt $filled ]; then
-            bar="${bar}█"
-        else
-            bar="${bar}░"
-        fi
-    done
-    
-    # Imprime a barra com porcentagem
-    printf "\r[%s] %3d%%" "$bar" "$percent"
-    
-    # Se chegou a 100%, adiciona nova linha
-    if [ $current -eq $total ]; then
-        echo
-    fi
+# Desenha uma barra de progresso de 0..100
+# Uso: progress <porcentagem> [largura]
+progress() {
+  local pct=$1
+  local width=${2:-50}
+
+  (( pct < 0 ))  && pct=0
+  (( pct > 100 )) && pct=100
+
+  local fill=$(( pct * width / 100 ))
+  local rest=$(( width - fill ))
+
+  # monta as partes
+  local bar_filled
+  local bar_empty
+  printf -v bar_filled "%*s" "$fill" ""
+  printf -v bar_empty  "%*s" "$rest" ""
+
+  bar_filled=${bar_filled// /#}   # substitui espaços por #
+  bar_empty=${bar_empty// /-}     # substitui espaços por -
+
+  printf "\r[%s%s] %3d%%" "$bar_filled" "$bar_empty" "$pct"
 }
+
+# Exemplo: simula um trabalho de 0 a 100%
+for i in {0..100}; do
+  progress "$i" 40
+  sleep 0.03
+done
+printf "\n"
