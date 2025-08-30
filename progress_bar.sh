@@ -17,7 +17,7 @@ for i in {0..100..5}; do
     bar+="]"
     
     # Exibe
-    printf "\r%s %d%%" "$bar" "$i"
+    echo "\r%s %d%%" "$bar" "$i"
     sleep 0.1
 done
 
