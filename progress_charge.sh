@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define o tamanho da barra de progresso
-bar_size=20
+bar_size=50
 
 # Simula um processo que dura 10 segundos
 for ((i = 0; i <= 100; i++)); do
@@ -19,7 +19,7 @@ for ((i = 0; i <= 100; i++)); do
   printf "\r[${progress_bar}] ${i}%%"
 
   # Simula um tempo de carregamento
-  sleep 0.1
+  sleep 0.8
 done
 
 printf "\nCarregamento concluído!\n"
