@@ -1,24 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env bash
+GREEN="\033[32m"
+RESET="\033[0m"
 
-# Barra de progresso simples
-for i in {0..100..5}; do
-    # Calcula a barra (20 caracteres de largura)
-    filled=$((i / 5))
-    empty=$((20 - filled))
-    
-    # Constrói a barra
-    bar="["
-    for ((j=0; j<filled; j++)); do
-        bar+="#"
-    done
-    for ((j=0; j<empty; j++)); do
-        bar+=" "
-    done
-    bar+="]"
-    
-    # Exibe
-    echo "\r%s %d%%" "$bar" "$i"
-    sleep 0.1
+progress_color() {
+  local pct=$1 width=${2:-50}
+  (( pct<0 )) && pct=0
+  (( pct>100 )) && pct=100
+  local fill=$(( pct * width / 100 ))
+  local rest=$(( width - fill ))
+  local filled empty
+  printf -v filled "%*s" "$fill" ""; filled=${filled// /#}
+  printf -v empty  "%*s" "$rest" ""; empty=${empty// /-}
+  printf "\r[${GREEN}%s${RESET}%s] %3d%%" "$filled" "$empty" "$pct"
+}
+
+for i in {0..100}; do
+  progress_color "$i" 50
+  sleep 0.02
 done
-
-echo ""  # Nova linha no final
+printf "\n"
