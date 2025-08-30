@@ -1,32 +1,26 @@
 #!/usr/bin/env bash
+shopt -s nullglob
+files=(input/*.txt)
+total=${#files[@]}
+done_count=0
 
-# Desenha uma barra de progresso de 0..100
-# Uso: progress <porcentagem> [largura]
 progress() {
-  local pct=$1
-  local width=${2:-50}
-
+  local pct=$1 width=${2:-40}
   (( pct < 0 ))  && pct=0
   (( pct > 100 )) && pct=100
-
   local fill=$(( pct * width / 100 ))
   local rest=$(( width - fill ))
-
-  # monta as partes
-  local bar_filled
-  local bar_empty
-  printf -v bar_filled "%*s" "$fill" ""
-  printf -v bar_empty  "%*s" "$rest" ""
-
-  bar_filled=${bar_filled// /#}   # substitui espaços por #
-  bar_empty=${bar_empty// /-}     # substitui espaços por -
-
-  printf "\r[%s%s] %3d%%" "$bar_filled" "$bar_empty" "$pct"
+  local filled empty
+  printf -v filled "%*s" "$fill" ""; filled=${filled// /#}
+  printf -v empty  "%*s" "$rest" ""; empty=${empty// /-}
+  printf "\r[%s%s] %3d%% (%d/%d)" "$filled" "$empty" "$pct" "$done_count" "$total"
 }
 
-# Exemplo: simula um trabalho de 0 a 100%
-for i in {0..100}; do
-  progress "$i" 40
-  sleep 0.03
+for f in "${files[@]}"; do
+  # ... faça algo com "$f" ...
+  sleep 0.05
+  ((done_count++))
+  pct=$(( done_count * 100 / total ))
+  progress "$pct" 50
 done
-printf "\n"
+printf "\nConcluído!\n"
