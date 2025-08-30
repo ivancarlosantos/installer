@@ -35,7 +35,6 @@ download_simulation() {
 
 download_simulation
 
-echo -e "\n=== Exemplo 6: Múltiplas Tarefas ==="
 tasks=("Inicializando" "Conectando ao servidor" "Baixando dados" "Processando" "Finalizando")
 
 for task_idx in ${!tasks[@]}; do

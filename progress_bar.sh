@@ -31,7 +31,6 @@ progress_bar() {
     fi
 }
 
-echo "=== Exemplo 1: Barra de Progresso Simples ==="
 for i in {1..100}; do
     progress_bar $i 100
     sleep 0.02

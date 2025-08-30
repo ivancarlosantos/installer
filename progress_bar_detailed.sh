@@ -35,7 +35,6 @@ progress_bar_detailed() {
     fi
 }
 
-echo -e "\n=== Exemplo 4: Barra com Informações Detalhadas ==="
 SECONDS=0  # Reset timer
 total_files=30
 for i in $(seq 1 $total_files); do

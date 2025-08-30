@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Função alternativa com cores
 progress_bar_colored() {
     local current=$1
@@ -35,8 +36,7 @@ progress_bar_colored() {
     fi
 }
 
-echo -e "\n=== Exemplo 2: Barra de Progresso Colorida ==="
 for i in {0..50}; do
     progress_bar_colored $((i*2)) 100
-    sleep 0.04
+    sleep 0.08
 done

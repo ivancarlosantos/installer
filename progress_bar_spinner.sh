@@ -29,7 +29,6 @@ progress_bar_spinner() {
     fi
 }
 
-echo -e "\n=== Exemplo 3: Barra com Spinner Animado ==="
 for i in {1..75}; do
     progress_bar_spinner $i 75
     sleep 0.03
