@@ -12,14 +12,14 @@ for ((i = 0; i <= 100; i++)); do
   empty_blocks=$((bar_size - filled_blocks))
   
   # Cria a barra de progresso
-  progress_bar=$(printf "%${filled_blocks}s" | tr ' ' '#')
-  progress_bar+=$(printf "%${empty_blocks}s" | tr ' ' '-')
+  progress_bar=$(echo "%${filled_blocks}s" | tr ' ' '#')
+  progress_bar+=$(echo "%${empty_blocks}s" | tr ' ' '-')
 
   # Exibe a barra de progresso e a porcentagem
-  printf "\r[${progress_bar}] ${i}%%"
+  echo "\r[${progress_bar}] ${i}%%"
 
   # Simula um tempo de carregamento
   sleep 0.1
 done
 
-printf "\nCarregamento concluído!\n"
+echo "\nCarregamento concluído!\n"
