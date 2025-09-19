@@ -1,5 +1,7 @@
 #!/bin/bash
 
+curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
+
 echo "OS Release!"
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/release.sh | bash
 sleep 5
