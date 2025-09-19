@@ -67,9 +67,9 @@ docker run --name pgadmin --network app-video-max -d -p 15432:80 -e PGADMIN_DEFA
 sleep 5
 
 echo "Video Max"
-docker run --name video-max -d -p 8080:8080 -e DB_URL='jdbc:postgresql://postgres:5432/video-max' -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e RABBITMQ_HOST='rabbit-host' devmenorzera/video-max:latest
+docker run --name video-max --network app-video-max -d -p 8080:8080 -e DB_URL='jdbc:postgresql://postgres:5432/video-max' -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e RABBITMQ_HOST='rabbit-host' devmenorzera/video-max:latest
 sleep 5
 
 echo "Update User Plan"
-docker run --name user-plan -d -p 8081:8081 -e DB_URL='jdbc:postgresql://postgres:5432/video-max' -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e RABBITMQ_HOST='rabbit-host' devmenorzera/user-plan:latest
+docker run --name user-plan --network app-video-max -d -p 8081:8081 -e DB_URL='jdbc:postgresql://postgres:5432/video-max' -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e RABBITMQ_HOST='rabbit-host' devmenorzera/user-plan:latest
 sleep 5
