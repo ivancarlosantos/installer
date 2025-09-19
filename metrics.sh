@@ -49,11 +49,11 @@ docker run --name cadvisor --network app-video-max -d -p 8083:8080 -v /:/rootfs:
 sleep 5
 
 echo "Instalar Uptime Kuma"
-docker run --name uptime-kuma --restart=always -d -p 8082:3001 -v uptime-kuma:/app/data -v /var/run/docker.sock:/var/run/docker.sock louislam/uptime-kuma:1
+docker run --name uptime-kuma --restart=always -d -p 3001:3001 -v uptime-kuma:/app/data -v /var/run/docker.sock:/var/run/docker.sock louislam/uptime-kuma:1
 sleep 5
 
 echo "Instalar RabbitMQ"
-docker run --name rabbitmq --hostname rabbit-host --network app-video-max -d -p 5672:5672 -p 8084:15672 rabbitmq:4.0-management-alpine
+docker run --name rabbitmq --hostname rabbit-host --network app-video-max -d -p 5672:5672 -p 15672:15672 rabbitmq:4.0-management-alpine
 sleep 5
 
 echo "Instalar Postgres"
