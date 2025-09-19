@@ -33,5 +33,5 @@ progress_bar() {
 
 for i in {1..100}; do
     progress_bar $i 100
-    sleep 0.02
+    sleep 0.10
 done
