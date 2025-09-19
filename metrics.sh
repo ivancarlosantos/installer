@@ -29,11 +29,6 @@ docker run -d -p 9000:9000 --name portainer --network app-video-max --restart=al
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
-echo "Instalar Loki"
-docker run --name loki --network app-video-max -d -v $(pwd):/mnt/config -p 3100:3100 grafana/loki:3.0.0 -config.file=/mnt/config/loki-config.yaml
-sleep 5
-curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
-
 echo "Instalar Promtail"
 docker run --name promtail --network app-video-max -d -v $(pwd):/mnt/config -v /var/log:/var/log --link loki grafana/promtail:3.0.0 -config.file=/mnt/config/promtail-config.yaml
 sleep 5
