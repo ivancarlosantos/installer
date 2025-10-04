@@ -49,7 +49,7 @@ docker run --name prometheus --network app-video-max -d -p 9090:9090 -v $(pwd)/p
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
-echo "Instalar Cadvisor"
+echo "Instalar cAdvisor"
 docker run --name cadvisor --network app-video-max -d -p 8083:8080 -v /:/rootfs:ro -v /var/run:/var/run:ro -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro -v /dev/disk/:/dev/disk:ro gcr.io/cadvisor/cadvisor:latest
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
@@ -58,6 +58,11 @@ echo "Instalar Uptime Kuma"
 docker run --name uptime-kuma --network app-video-max --restart=always -d -p 3001:3001 -v uptime-kuma:/app/data -v /var/run/docker.sock:/var/run/docker.sock louislam/uptime-kuma:1
 sleep 3
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
+
+echo "Instalar minio s3 storage"
+docker run --name minio --network=app-video-max -d -p 9002:9000 -p 9001:9001 --user ${id -u}:${id -g} -e MINIO_ROOT_USER='admin' -e MINIO_ROOT_PASSWORD='icarlos@icarlos' quay.io/minio/minio server /data --console-address ":9001"
+sleep 3
+curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/download_simulation.sh | bash
 
 echo "Instalar RabbitMQ"
 docker run --name rabbitmq --hostname rabbit-host --network app-video-max -d -p 5672:5672 -p 15672:15672 rabbitmq:4.0-management-alpine
@@ -69,7 +74,7 @@ docker run --name postgres --network app-video-max -d -p 5432:5432 -e POSTGRES_P
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
-echo "PGAdmin"
+echo "PGAdmin SGBD"
 docker run --name pgadmin --network app-video-max -d -p 15432:80 -e PGADMIN_DEFAULT_EMAIL='video-max@mail.com.br' -e PGADMIN_DEFAULT_PASSWORD='video-max@mail.com.br' dpage/pgadmin4:latest
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
