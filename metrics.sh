@@ -85,7 +85,7 @@ sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
 echo "Video Max"
-docker run --name video-max --network app-video-max -d -p 8080:8080 -e DB_URL='jdbc:postgresql://postgres:5432/video-max' -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e RABBITMQ_HOST='rabbit-host' devmenorzera/video-max:latest
+docker run --name video-max --network app-video-max -d -p 8080:8080 -e DB_URL='jdbc:postgresql://postgres:5432/video-max' -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e RABBITMQ_HOST='rabbit-host' -e ACCESS_KEY='admin' -e BUCKET_NAME='user-images' -e SECRET_KEY='icarlos@icarlos' devmenorzera/video-max:latest
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
