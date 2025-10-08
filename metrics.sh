@@ -18,11 +18,11 @@ sleep 2
 
 echo "Download batchshell file image api-video-max"
 sleep 3
-cd environment-installer && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/prometheus.yml && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/promtail-config.yaml && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/loki-config.yml && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.c && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/image.sh && chmod +x image.sh
-sleep 3
-echo "Download image file Successfully"
+cd environment-installer && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/prometheus.yml && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/promtail-config.yaml && curl -O https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/loki-config.yml
 sleep 3
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
+echo "Download Files Successfully"
+sleep 3
 
 echo "Portainer"
 docker run -d -p 9000:9000 --name portainer --network app-video-max --restart=always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer-ce:lts
@@ -61,6 +61,11 @@ curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/head
 
 echo "Instalar RabbitMQ"
 docker run --name rabbitmq --hostname rabbit-host --network app-video-max -d -p 5672:5672 -p 15672:15672 rabbitmq:4.0-management-alpine
+sleep 5
+curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
+
+echo "Instalar Minio"
+docker run --name minio --network=app-obs -d -p 9002:9000 -p 9001:9001 -e MINIO_ROOT_USER='admin' -e MINIO_ROOT_PASSWORD='icarlos@icarlos' minio/minio:latest server /data --console-address ":9001"
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
