@@ -70,7 +70,7 @@ sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
 echo "Instalar Minio"
-docker run --name minio --network=app-obs -d -p 9002:9000 -p 9001:9001 -e MINIO_ROOT_USER='admin' -e MINIO_ROOT_PASSWORD='icarlos@icarlos' minio/minio:latest server /data --console-address ":9001"
+docker run --name minio --network app-video-max -d -p 9002:9000 -p 9001:9001 -e MINIO_ROOT_USER='admin' -e MINIO_ROOT_PASSWORD='icarlos@icarlos' minio/minio:latest server /data --console-address ":9001"
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
