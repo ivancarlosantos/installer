@@ -65,7 +65,7 @@ sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
 echo "Instalar Minio"
-docker run --name='minio' --network='app-video-max' -d -p 9000:9000 -p 9001:9001 -e MINIO_ROOT_USER='admin' -e MINIO_ROOT_PASSWORD='icarlos@icarlos' minio/minio:latest server /data --console-address ":9001"
+docker run --name='minio' --network='app-video-max' -d -p 9000:9000 -p 9001:9001 -e MINIO_ROOT_USER='admin' -e MINIO_ROOT_PASSWORD='12345' minio/minio:latest server /data --console-address ":9001"
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
@@ -75,12 +75,12 @@ sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
 echo "PGAdmin SGBD"
-docker run --name pgadmin --network app-video-max -d -p 15432:80 -e PGADMIN_DEFAULT_EMAIL='icarlos@icarlos.com' -e PGADMIN_DEFAULT_PASSWORD='icarlos@icarlos' dpage/pgadmin4:latest
+docker run --name pgadmin --network app-video-max -d -p 15432:80 -e PGADMIN_DEFAULT_EMAIL='icarlos@icarlos.com' -e PGADMIN_DEFAULT_PASSWORD='12345' dpage/pgadmin4:latest
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
 echo "Video Max"
-docker run --name='video-max' --network='app-video-max' -d -p 8080:8080 -e DB_URL='jdbc:postgresql://postgres:5432/video-max' -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e RABBITMQ_HOST='rabbit-host' -e MINIO_URL='http://minio:9000' -e ACCESS_KEY='admin' -e BUCKET_NAME='user-images' -e SECRET_KEY='icarlos@icarlos' devmenorzera/video-max:latest
+docker run --name='video-max' --network='app-video-max' -d -p 8080:8080 -e DB_URL='jdbc:postgresql://postgres:5432/video-max' -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e RABBITMQ_HOST='rabbit-host' -e MINIO_URL='http://minio:9000' -e ACCESS_KEY='admin' -e BUCKET_NAME='user-images' -e SECRET_KEY='12345' devmenorzera/video-max:latest
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
