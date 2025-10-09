@@ -75,7 +75,7 @@ sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
 echo "PGAdmin SGBD"
-docker run --name pgadmin --network app-video-max -d -p 15432:80 -e PGADMIN_DEFAULT_EMAIL='icarlos@icarlos' -e PGADMIN_DEFAULT_PASSWORD='icarlos@icarlos' dpage/pgadmin4:latest
+docker run --name pgadmin --network app-video-max -d -p 15432:80 -e PGADMIN_DEFAULT_EMAIL='icarlos@icarlos.com' -e PGADMIN_DEFAULT_PASSWORD='icarlos@icarlos' dpage/pgadmin4:latest
 sleep 5
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
