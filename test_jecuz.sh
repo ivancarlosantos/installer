@@ -2,17 +2,17 @@
 
 set -e
 
-echo "SmokeTest Jecuz URL"
+echo "SmokeTest Jecuz URL\n"
 sleep 3
 
-echo "Required health"
+echo "Required health\n"
 sleep 3
 curl http://localhost:8080/actuator/health 
 sleep 2
 
-echo "Application URL Test"
+echo "Application URL Test\n"
 sleep 3
 curl http://localhost:8080/test 
 sleep 2
 
-echo "SmokeTest Successfully!!"
+echo "SmokeTest Successfully!!\n"
