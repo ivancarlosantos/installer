@@ -10,9 +10,9 @@ sleep 3
 curl http://localhost:8080/actuator/health 
 sleep 2
 
-echo 'Application URL Test\n'
+echo '\nApplication URL Test\n'
 sleep 3
 curl http://localhost:8080/test 
 sleep 2
 
-echo 'SmokeTest Successfully!!\n'
+echo '\nSmokeTest Successfully!!\n'
