@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "SmokeTest Jecuz URL"
 sleep 3
 
