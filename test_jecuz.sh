@@ -5,6 +5,14 @@ echo "🚀 INICIANDO TESTES AUTOMATIZADOS DA API"
 echo "=============================================="
 
 # ---------------------------------------------------
+# 1️⃣ Create Network Docker Container
+# ---------------------------------------------------
+echo 'create network database'
+sleep 3
+docker network create --driver bridge jecuz_app
+sleep 20
+
+# ---------------------------------------------------
 # 1️⃣ Started Docker Container Database
 # ---------------------------------------------------
 echo 'initialzr docker container Database'
