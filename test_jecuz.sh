@@ -82,6 +82,13 @@ curl -X POST http://localhost:8080/api/ordem/servico/gerar?idCliente=1&idDiarist
 call_api "Listar Ordens de Serviço"
 curl GET http://localhost:8080/api/ordem/servico/list?search=&page=0&size=10
 
+# ---------------------------------------------------
+# 6️⃣ Destruir containers
+# ---------------------------------------------------
+sleep 5
+docker stop jecuz-test jecuz_db
+docker rm jecuz-test jecuz_db
+
 echo ""
 echo "=============================================="
 echo "🎉 TODOS OS TESTES EXECUTADOS COM SUCESSO"
