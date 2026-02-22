@@ -31,11 +31,19 @@ function call_api() {
 }
 
 # ---------------------------------------------------
-# 1️⃣ Initlizr Docker Container
+# 1️⃣ Started Docker Container Database
+# ---------------------------------------------------
+echo 'initialzr docker container Database'
+sleep 15
+docker run --name='jecuz_db' --network='jecuz_app' -d -p 5432:5432 -e POSTGRES_PASSWORD='12345' -e POSTGRES_USER='postgres' -e POSTGRES_DB='jecuz_db' postgres:15
+sleep 5
+
+# ---------------------------------------------------
+# 1️⃣ Initializr Docker Container
 # ---------------------------------------------------
 echo 'initialzr docker container'
-sleep 3
-docker run --name=jecuz-test --network=jecuz_app -d -p 8080:8080 -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e DB_URL='jdbc:postgresql://postgres:5432/jecuz_db' devmenorzera/jecuz:release
+sleep 15
+docker run --name=jecuz-test --network=jecuz_app -d -p 8080:8080 -e DB_USERNAME='postgres' -e DB_PASSWORD='12345' -e DB_URL='jdbc:postgresql://jecuz_db:5432/jecuz_db' devmenorzera/jecuz:release
 sleep 5
 
 # ---------------------------------------------------
