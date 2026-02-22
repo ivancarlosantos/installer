@@ -33,20 +33,23 @@ curl -X GET http://localhost:8080/actuator/health
 echo "Endpoint Teste"
 sleep 3
 curl -X GET http://localhost:8080/test
+sleep 2
 
 # ---------------------------------------------------
 # 3️⃣ Criar Cliente
 # ---------------------------------------------------
 echo "Criar Cliente"
 sleep 3
-curl -X POST http://localhost:8080/api/cliente/save?nome=NameFullName&nascimento=22/02/1990&telefone=%2B244854587887&numeroBi=001668196RS032&email=mail@mail.com
+curl -X POST http://localhost:8080/api/cliente/save?nome=NameFullName&nascimento=22/02/1990&telefone='+244854587887'&numeroBi=001668196RS032&email=mail@mail.com
+sleep 2
 
 # ---------------------------------------------------
 # 4️⃣ Criar Diarista
 # ---------------------------------------------------
 echo "Criar Diarista"
 sleep 3
-curl -X POST http://localhost:8080/api/diarista/save?nome=NameFullName&nascimento=22/02/1990&telefone=%2B244854587878&numeroBi=001668196TQ032&email=mail@mail.com
+curl -X POST http://localhost:8080/api/diarista/save?nome=NameFullName&nascimento=22/02/1990&telefone='+244854587878'&numeroBi=001668196TQ032&email=mail@mail.com
+sleep 2
 
 # ---------------------------------------------------
 # 5️⃣ Gerar Ordem de Serviço
@@ -54,6 +57,7 @@ curl -X POST http://localhost:8080/api/diarista/save?nome=NameFullName&nasciment
 echo "Gerar Ordem de Serviço"
 sleep 3
 curl -X POST http://localhost:8080/api/ordem/servico/gerar?idCliente=1&idDiarista=1&tipoLimpeza=RESIDENCIAL&dataSolicitacao=15/02/2026&descricaoTarefa=limpeza%20comodos&valor=200.0&dataExecucao=19/02/2026
+sleep 2
 
 # ---------------------------------------------------
 # 6️⃣ Listar Ordens
@@ -61,6 +65,7 @@ curl -X POST http://localhost:8080/api/ordem/servico/gerar?idCliente=1&idDiarist
 echo "Listar Ordens de Serviço"
 sleep 3
 curl -X GET http://localhost:8080/api/ordem/servico/list?search=&page=0&size=10
+sleep 2
 
 # ---------------------------------------------------
 # 6️⃣ Destruir containers
