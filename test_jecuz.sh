@@ -40,7 +40,8 @@ sleep 2
 # ---------------------------------------------------
 echo "Criar Cliente"
 sleep 3
-curl -X POST http://localhost:8080/api/cliente/save?nome=NameFullName&nascimento=22/02/1990&telefone='+244854587887'&numeroBi=001668196RS032&email=mail@mail.com -H "Content-Type: application/json"
+curl -X POST "http://localhost:8080/api/cliente/save?nome=NameFullName&nascimento=22/02/1990&telefone=%2B244854587887&numeroBi=001668196RS032&email=mail@mail.com" \
+  -H "Content-Type: application/json"
 sleep 2
 
 # ---------------------------------------------------
@@ -48,7 +49,7 @@ sleep 2
 # ---------------------------------------------------
 echo "Criar Diarista"
 sleep 3
-curl -X POST http://localhost:8080/api/diarista/save?nome=NameFullName&nascimento=22/02/1990&telefone='+244854587878'&numeroBi=001668196TQ032&email=mail@mail.com -H "Content-Type: application/json"
+curl -X POST "http://localhost:8080/api/diarista/save?nome=NameFullName&nascimento=22/02/1990&telefone=%2B244854587887&numeroBi=001668196RS032&email=mail@mail.com" -H "Content-Type: application/json"
 sleep 2
 
 # ---------------------------------------------------
@@ -56,7 +57,7 @@ sleep 2
 # ---------------------------------------------------
 echo "Gerar Ordem de Serviço"
 sleep 3
-curl -X POST http://localhost:8080/api/ordem/servico/gerar?idCliente=1&idDiarista=1&tipoLimpeza=RESIDENCIAL&dataSolicitacao=15/02/2026&descricaoTarefa=limpeza%20comodos&valor=200.0&dataExecucao=19/02/2026 -H "Content-Type: application/json"
+curl -X POST "http://localhost:8080/api/ordem/servico/gerar?idCliente=1&idDiarista=1&tipoLimpeza=RESIDENCIAL&dataSolicitacao=15/02/2026&descricaoTarefa=limpeza%20comodos&valor=200.0&dataExecucao=19/02/2026" -H "Content-Type: application/json"
 sleep 2
 
 # ---------------------------------------------------
@@ -64,7 +65,7 @@ sleep 2
 # ---------------------------------------------------
 echo "Listar Ordens de Serviço"
 sleep 3
-curl -X GET http://localhost:8080/api/ordem/servico/list?search=&page=0&size=10 -H "Content-Type: application/json"
+curl -X GET "http://localhost:8080/api/ordem/servico/list?search=&page=0&size=10" -H "Content-Type: application/json"
 sleep 2
 
 # ---------------------------------------------------
