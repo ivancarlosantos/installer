@@ -25,7 +25,7 @@ echo "==========================================================="
 echo "🚀 BAIXANDO AS IMAGENS DO BANCO POSTGRES E SGBG PGADMIN"
 echo "==========================================================="
 
-sleep 2
+sleep 10
 
 echo ' '
 echo "==========================================================="
@@ -45,6 +45,8 @@ docker run --name='sgbd-pgadmin' --network='aula_net' -d -p 15432:80 -e PGADMIN_
 sleep 5
 
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
+
+sleep 5
 echo ' '
 echo "================================================="
 echo "🎉 TODOS OS CONTAINERS EXECUTADOS COM SUCESSO"
