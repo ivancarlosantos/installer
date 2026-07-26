@@ -31,7 +31,7 @@ sleep 20
 
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
-docker run --name='pgadmin' --network='aula_net' -d -p 15432:80 -e PGADMIN_DEFAULT_EMAIL='aula@aula.com' -e PGADMIN_DEFAULT_PASSWORD='aula@aula.com' dpage/pgadmin4:latest
+docker run --name='sgbd-pgadmin' --network='aula_net' -d -p 15432:80 -e PGADMIN_DEFAULT_EMAIL='aula@aula.com' -e PGADMIN_DEFAULT_PASSWORD='aula@aula.com' dpage/pgadmin4:latest
 sleep 5
 
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
