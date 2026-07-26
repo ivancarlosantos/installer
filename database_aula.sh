@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 3
+
 echo "=============================================="
 echo "🚀 INICIANDO DOWNLOAD DA BASE DE DADOS"
 echo "=============================================="
@@ -26,11 +28,19 @@ echo "==========================================================="
 sleep 2
 
 echo ' '
+echo "==========================================================="
+echo "🚀 BAIXANDO IMAGEM DO BANCO POSTGRES"
+echo "==========================================================="
 docker run --name='database-aula' --network='aula_net' -d -p 5433:5432 -e POSTGRES_PASSWORD='aula' -e POSTGRES_USER='aula' -e POSTGRES_DB='database_aula' postgres:15
-sleep 20
+sleep 10
 
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
 
+sleep 2
+echo ' '
+echo "==========================================================="
+echo "🚀 BAIXANDO AS IMAGEM SGBG PGADMIN"
+echo "==========================================================="
 docker run --name='sgbd-pgadmin' --network='aula_net' -d -p 15432:80 -e PGADMIN_DEFAULT_EMAIL='aula@aula.com' -e PGADMIN_DEFAULT_PASSWORD='aula@aula.com' dpage/pgadmin4:latest
 sleep 5
 
