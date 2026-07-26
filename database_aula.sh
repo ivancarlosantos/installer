@@ -31,7 +31,7 @@ echo ' '
 echo "==========================================================="
 echo "🚀 BAIXANDO IMAGEM DO BANCO POSTGRES"
 echo "==========================================================="
-docker run --name='database-aula' --network='aula_net' -d -p 5433:5432 -e POSTGRES_PASSWORD='aula' -e POSTGRES_USER='aula' -e POSTGRES_DB='database_aula' postgres:15
+docker run --name='database-aula' --network='aula_net' -d -p 5433:5433 -e POSTGRES_PASSWORD='aula' -e POSTGRES_USER='aula' -e POSTGRES_DB='database_aula' postgres:15
 sleep 10
 
 curl -fsSL https://raw.githubusercontent.com/ivancarlosantos/installer/refs/heads/master/progress_bar_spinner.sh | bash
